@@ -4,15 +4,13 @@ public class EchoServer extends Thread{
     private DatagramSocket socket; // attributo che specifica l'indirizzo della socket
     private boolean running;	  // attributo che specifica lo stato del process
     private byte[] buf = new byte[256	];	//array di byte per unire i messaggi
-
     public EchoServer() throws SocketException{	// costruttore, stabilisce la porta di comunicazione
         socket = new DatagramSocket(4445);
     }
-
+	
     /*metodo che aspetta l'arrivo di un messaggio e lo rimanda indietro
     alla variabile running viene assegnato true fino a quando non
     non arriva un errore o il messaggio "end" dal client*/
-	
     public void run() {
         running = true; 
         while (running) {
